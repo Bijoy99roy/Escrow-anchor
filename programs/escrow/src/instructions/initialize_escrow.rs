@@ -54,8 +54,6 @@ impl<'info> InitializeEscrow<'info> {
     pub fn create_offer(
         &mut self,
         index: u64,
-        token_a_mint: Pubkey,
-        token_b_mint: Pubkey,
         token_a_offered_amount: u64,
         token_b_ask_amount: u64,
         escrow_state_bump: u8,
@@ -86,8 +84,8 @@ impl<'info> InitializeEscrow<'info> {
 
         transfer_checked(cpi_ctx, token_a_offered_amount, self.token_mint_a.decimals)?;
 
-        self.escrow_state.token_mint_a = token_a_mint;
-        self.escrow_state.token_mint_b = token_b_mint;
+        self.escrow_state.token_mint_a = self.token_mint_a.key();
+        self.escrow_state.token_mint_b = self.token_mint_b.key();
         self.escrow_state.token_b_ask_amount = token_b_ask_amount;
         self.escrow_state.state_bump = escrow_state_bump;
         self.escrow_state.index = index;
