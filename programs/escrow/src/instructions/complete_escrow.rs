@@ -32,8 +32,9 @@ pub struct CompleteEscrow<'info> {
     token_a_vault: InterfaceAccount<'info, TokenAccount>,
 
     #[account(
-        mut,
-        associated_token::mint = token_mint_a,
+        init_if_needed,
+        payer = taker,
+        associated_token::mint = token_mint_b,
         associated_token::authority = maker,
         associated_token::token_program = token_program
     )]
