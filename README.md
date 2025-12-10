@@ -2,6 +2,10 @@
 
 An escrow contract that allows users trade SPL Tokens in a trustless manner.
 
+## User Story & Architecture Diagram
+
+[Click Here](https://docs.google.com/document/d/1dEAGeWgn_7CvGvKf4V9BPOfmLPmn5RBmIvRq2dRwhMA/edit?usp=sharing) for user story
+
 ## Functionality
 
 - **CreateOffer**: Allows user to initalize a token trade by offering to swap between two tokens on a set amount.
